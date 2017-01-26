@@ -46,20 +46,23 @@ If you don't see a list of all the tmuxinator configuration sessions (minus the 
 * po -h
   - display help info on using `po` utility
 
+* po -c SESSION
+  - print to STDOUT the contents of "~/.tmuxinator/SESSION.yml" configuration file
+
+* po -e SESSION
+  - edit the "~/.tmuxinator/SESSION.yml" configuration file for SESSION
+
 * po -l
   - display all *.list (project-groups) files
 
-* po -n
-  - display the number of projects currently running
-
-* po -r
-  - show all running projects (same as `txl`)
-
-* po -l all
+* po -L all
   - basically same as `mux list`
 
-* po -l top
+* po -L top
   - show contents of the top.list file
+
+* po -n
+  - display the number of projects currently running
 
 * po -o SESSION
   - open a specific session named SESSION
@@ -67,18 +70,34 @@ If you don't see a list of all the tmuxinator configuration sessions (minus the 
 * po -O top
   - open all projects in top.list file
 
-* po -O $LIST
+* po -O GROUP
   - open all projects in $LIST.list file
+
+* po -r
+  - show all running projects (same as `txl`)
 
 * po -x SESSION
   - terminate a session named SESSION (basically `tmuxinator stop SESSION`)
 
-* po -X $LIST
+* po -X GROUP
   - terminate any apps in the $LIST.list file
 
 * po -X all
   - terminate ALL projects currently running through tmux
 
-* po -e SESSION
-  - edit the "~/.tmuxinator/SESSION.yml" configuration file for SESSION
+
+
+#===========================================================================
+# WRAPPER functions over `tmux` utility functionality
+#===========================================================================
+
+# wrappter around tmux attach SESSION
+po -a  SESSION
+
+# wrapper around tmux detach
+po -d
+
+
+
+
 

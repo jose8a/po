@@ -1,0 +1,46 @@
+Usage:
+      po -h
+        - display help menu
+
+      po -c SESSION
+        - print to STDOUT the tmuxinator SESSION.yml configuration
+
+      po -e SESSION
+        - edit the tmuxinator SESSION.yml configuration
+
+      po -l
+        - display all available PROJECT-GROUP files
+
+      po -L all
+        - alias for `tmuxinator list`
+
+      po -L top
+        - display top-priority projects
+
+      po -n
+        - display the number of tmux sessions/projects currently running
+
+      po -o SESSION
+        - launch a specific session/project named SESSION
+
+      po -O top
+        - launch all projects/sessions in `top.list` file
+
+      po -O GROUP
+        - launch all projects/sessions in project-group named GROUP
+
+      po -r
+        - show all running projects (essentially alias for `tmux list-sessions`)
+
+      po -x SESSION
+        - terminate an active project/session named SESSION (alias for `tmuxinator stop SESSION`)
+
+      po -X all
+        - terminate ALL tmux projects/sessions currently running
+
+      po -a  SESSION
+        - wrapper around the comand `tmux a -t SESSION`
+
+      po -d
+        - wrapper around the command `tmux detach`
+

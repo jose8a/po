@@ -1,13 +1,14 @@
 #!/bin/bash
 
-# -- $PO=""
+# TODO: remove this hard-coded $PO path and set it via the `install.sh` script
+PO="~/jdev/po-projects/"
 
 po_show_help() {
-  echo "HELP menu:"
+  cat HELP
 }
 
 po_show_running() {
-  tmux --list-sessions
+  tmux list-sessions |  cut -d : -f 1
 }
 po_open_one() {
   PROJECT=$2
@@ -18,7 +19,7 @@ po_open_list () {
 }
 
 po_list_all () {
-  tmux --list-sessions
+  tmuxinator list
 }
 
 po_list_list () {
@@ -36,9 +37,7 @@ po_stop_group () {
 
 case $1 in
   -h)
-    echo "PO Help Menu:"
-    echo "__THE__HELP__MENU__"
-    # po_show_help()
+    po_show_help
     ;;
   -r)
     echo "running projects ..."
@@ -46,7 +45,12 @@ case $1 in
     ;;
   -l)
     echo listing ...
-    # if $2=='all', run `list_all()`
+    if [ $2 = 'all' ]
+    then
+      po_list_all
+    else
+      po_list_list
+    fi
     # else, run `po_list_list()`
     ;;
   -o)
@@ -67,5 +71,9 @@ case $1 in
     ;;
   -e)
       vim ~/.tmuxinator/$2.yml
+    ;;
+  *)
+    echo "ERROR: Usage: "
+    po_show_help
     ;;
 esac
