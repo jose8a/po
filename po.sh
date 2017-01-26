@@ -42,6 +42,26 @@ case $1 in
   -h)
     po_show_help
     ;;
+  -a)
+    # tbd
+    ;;
+  -c)
+    # tbd
+      FILE='~/.tmuxinator/$2.yml'
+      if [ -e $FILE ]
+      then
+        cat $FILE
+        #cat ~/.tmuxinator/$2.yml
+      else
+        echo "please provide an existing configuration filename"
+      fi
+    ;;
+  -d)
+    # tbd
+    ;;
+  -e)
+      vim ~/.tmuxinator/$2.yml
+    ;;
   -r)
     po_show_running
     ;;
@@ -54,6 +74,12 @@ case $1 in
       po_list_list
     fi
     # else, run `po_list_list()`
+    ;;
+  -L)
+    # tbd
+    ;;
+  -n)
+    # tbd
     ;;
   -o)
     echo opening one ...
@@ -70,9 +96,6 @@ case $1 in
   -X)
     echo "terminate $2 ..."
     # po_stop_group()
-    ;;
-  -e)
-      vim ~/.tmuxinator/$2.yml
     ;;
   *)
     echo "ERROR: Usage: "
