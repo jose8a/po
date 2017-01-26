@@ -1,12 +1,22 @@
 #!/bin/bash
 
+# ===========================================================================
+# GLOBAL VARIABLES
+# ===========================================================================
 SESSION=$2
 GROUP=$2
 
+# TODO: remove this hard-coded $PO_GROUPS path and set it via the `install.sh` script
+PO_GROUPS="/Users/jose8a/jdev/po-projects"
 
-# TODO: remove this hard-coded $PO path and set it via the `install.sh` script
-PO="/Users/jose8a/jdev/po-projects"
+# tmuxinator config files path
+TM_PATH="/Users/jose8a/.tmuxinator"
 
+
+
+# ===========================================================================
+# FUNCTIONS
+# ===========================================================================
 po_show_help() {
   cat HELP
 }
@@ -25,8 +35,40 @@ po_attach_session() {
   tmux attach -t $SESSION
 }
 
+po_display_configuration () {
+  FILE="$TM_PATH/$SESSION.yml"
+
+  if [ -e $FILE ]
+  then
+    echo "----------------------------------------"
+    cat $FILE
+    echo "----------------------------------------"
+    echo
+  else
+    echo "Configuration file does not exist."
+    echo "Please provide a valid configuration."
+    echo
+  fi
+}
+
 po_detach_session() {
   tmux detach
+}
+
+po_edit_configuration () {
+  FILE="$TM_PATH/$SESSION.yml"
+
+  if [ -e $FILE ]
+  then
+    echo "----------------------------------------"
+    vim $FILE
+    echo "----------------------------------------"
+    echo
+  else
+    echo "Configuration file does not exist."
+    echo "Please provide a valid configuration."
+    echo
+  fi
 }
 
 po_show_running() {
@@ -42,31 +84,50 @@ po_open_one() {
 }
 
 po_open_group () {
-  FILE="$PO/$GROUP.list"
+  FILE="$PO_GROUPS/$GROUP.list"
 
   echo "opening project-group ..."
   cat $FILE | xargs -n 1 tmuxinator
 }
 
-po_list_all () {
-  tmuxinator list
+po_display_launchers() {
+  echo
+  echo "----------------------------------------"
+
+  if [ $GROUP = 'all' ]
+  then
+    echo "listing all available launchers ..."
+    po_list_all
+  else
+    echo "listing the launchers in group $GROUP ..."
+    po_list_group
+  fi
+
+  echo
 }
 
-po_list_list () {
-  cat $PO/projects/$2.list
+po_list_all () {
+  tmuxinator list | xargs -n 1
+}
+
+po_list_group () {
+  cat $PO_GROUPS/$GROUP.list | xargs -n 1 echo "  * "
 }
 
 po_stop_one () {
-  echo "terminate project: $2"
-  cat $PO/projects/$2.list
+  echo "terminate project: $SESSION"
+  cat $PO_GROUPS/projects/$SESSION.list
 }
 
 po_stop_group () {
-  echo "terminate group: $2 ..."
-  cat $PO/projects/$2.list
+  echo "terminate group: $GROUP ..."
+  cat $PO_GROUPS/projects/$GROUP.list
 }
 
 
+# ===========================================================================
+# USER-INPUT ROUTER
+# ===========================================================================
 case $1 in
   -h)
       po_show_help
@@ -75,33 +136,19 @@ case $1 in
       po_attach_session
       ;;
   -c)
-      FILE='~/.tmuxinator/$2.yml'
-      if [ -e $FILE ]
-      then
-        cat $FILE
-      else
-        echo "Configuration file does not exist."
-        echo "Please provide a valid configuration."
-        echo
-      fi
+      po_display_configuration
       ;;
   -d)
       po_detach_session
       ;;
-  -e)   # TODO
-      vim ~/.tmuxinator/$2.yml
+  -e)
+      po_edit_configuration
       ;;
   -r)
       po_show_running
       ;;
   -l)
-      echo listing ...
-      if [ $2 = 'all' ]
-      then
-        po_list_all
-      else
-        po_list_list
-      fi
+      po_display_launchers
       ;;
   -L)   # TODO
       echo "TODO: this option not yet implemented. Check back later!"
