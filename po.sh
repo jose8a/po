@@ -1,10 +1,23 @@
 #!/bin/bash
 
+SESSION=$2
+GROUP=$2
+
+
 # TODO: remove this hard-coded $PO path and set it via the `install.sh` script
 PO="~/jdev/po-projects/"
 
 po_show_help() {
   cat HELP
+}
+
+po_attach_session() {
+  echo "trying to attach to:  $SESSION"
+  tmux attach -t $SESSION
+}
+
+po_detach_session() {
+  tmux detach
 }
 
 po_show_running() {
@@ -15,8 +28,8 @@ po_show_running() {
 }
 
 po_open_one() {
-  echo opening one ...
-  PROJECT=$2
+  echo "opening session $SESSION ..."
+  tmuxinator $SESSION
 }
 
 po_open_list () {
@@ -45,11 +58,12 @@ po_stop_group () {
 
 case $1 in
   -h)
-    po_show_help
-    ;;
+      po_show_help
+      ;;
   -a)
-    echo "TODO: this option not yet implemented. Check back later!"
-    ;;
+      echo "TODO: this option not yet implemented. Check back later!"
+      po_attach_session
+      ;;
   -c)
       FILE='~/.tmuxinator/$2.yml'
       if [ -e $FILE ]
@@ -61,10 +75,11 @@ case $1 in
         echo
       fi
     ;;
-  -d)
+  -d)   # TODO
     echo "TODO: this option not yet implemented. Check back later!"
+      po_detach_session
     ;;
-  -e)
+  -e)   # TODO
       vim ~/.tmuxinator/$2.yml
     ;;
   -r)
@@ -79,30 +94,35 @@ case $1 in
       po_list_list
     fi
     ;;
-  -L)
+  -L)   # TODO
     echo "TODO: this option not yet implemented. Check back later!"
     ;;
-  -n)
+  -n)   # TODO
     echo "TODO: this option not yet implemented. Check back later!"
     ;;
-  -o)
-    echo "TODO: this option not yet implemented. Check back later!"
-    # po_open_one()
+  -o)   # TODO
+      echo "TODO: this option not yet implemented. Check back later!"
+      po_open_one
     ;;
-  -O)
+  -O)   # TODO
     echo "TODO: this option not yet implemented. Check back later!"
     # po_open_list()
     ;;
-  -x)
+  -x)   # TODO
     echo "TODO: this option not yet implemented. Check back later!"
     # po_stop_one()
     ;;
-  -X)
+  -X)   # TODO
     echo "TODO: this option not yet implemented. Check back later!"
     # po_stop_group()
     ;;
   *)
-    echo "ERROR: Usage: "
+    echo
+    echo "  ==================================="
+    echo "  *                                 *"
+    echo "  *    ERROR -- Invalid options.    *"
+    echo "  ==================================="
+    echo
     po_show_help
     ;;
 esac

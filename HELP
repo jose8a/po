@@ -1,46 +1,25 @@
 Usage:
-      po -h
-        - display help menu
+      po OPTION [SESSION]
+      po OPTION [GROUP]
 
-      po -c SESSION
-        - print to STDOUT the tmuxinator SESSION.yml configuration
+      OPTIONS:
+      -h            :display help menu
+      -c SESSION    :print to STDOUT the tmuxinator SESSION.yml configuration
+      -e SESSION    :edit the tmuxinator SESSION.yml configuration
+      -l            :display all available PROJECT-GROUP files
+      -L all        :alias for `tmuxinator list`
+      -L top        :display top-priority sessions
+      -n            :display the number of tmux sessions currently running
+      -o SESSION    :launch a specific project named SESSION
+      -O top        :launch all sessions in `top.list` file
+      -O GROUP      :launch all sessions in project-group named GROUP
+      -r            :show all running sessions
+                      ... alias for `tmux list-sessions`
 
-      po -e SESSION
-        - edit the tmuxinator SESSION.yml configuration
+      -x SESSION    :terminate an active session named SESSION
+                      ... alias for `tmuxinator stop SESSION`
 
-      po -l
-        - display all available PROJECT-GROUP files
-
-      po -L all
-        - alias for `tmuxinator list`
-
-      po -L top
-        - display top-priority projects
-
-      po -n
-        - display the number of tmux sessions/projects currently running
-
-      po -o SESSION
-        - launch a specific session/project named SESSION
-
-      po -O top
-        - launch all projects/sessions in `top.list` file
-
-      po -O GROUP
-        - launch all projects/sessions in project-group named GROUP
-
-      po -r
-        - show all running projects (essentially alias for `tmux list-sessions`)
-
-      po -x SESSION
-        - terminate an active project/session named SESSION (alias for `tmuxinator stop SESSION`)
-
-      po -X all
-        - terminate ALL tmux projects/sessions currently running
-
-      po -a  SESSION
-        - wrapper around the comand `tmux a -t SESSION`
-
-      po -d
-        - wrapper around the command `tmux detach`
+      -X all        :terminate ALL tmux sessions currently running
+      -a SESSION    :wrapper around the comand `tmux a -t SESSION`
+      -d            :wrapper around the command `tmux detach`
 
