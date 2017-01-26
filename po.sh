@@ -8,7 +8,10 @@ po_show_help() {
 }
 
 po_show_running() {
-  tmux list-sessions |  cut -d : -f 1
+  echo "These projects currently running: "
+  echo
+  tmux list-sessions |  cut -d : -f 1 | xargs -n 1 echo "  * "
+  echo
 }
 po_open_one() {
   PROJECT=$2
@@ -40,8 +43,7 @@ case $1 in
     po_show_help
     ;;
   -r)
-    echo "running projects ..."
-    # po_show_running()
+    po_show_running
     ;;
   -l)
     echo listing ...
