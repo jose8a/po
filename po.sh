@@ -43,10 +43,9 @@ case $1 in
     po_show_help
     ;;
   -a)
-    # tbd
+    echo "TODO: this option not yet implemented. Check back later!"
     ;;
   -c)
-    # tbd
       FILE='~/.tmuxinator/$2.yml'
       if [ -e $FILE ]
       then
@@ -57,7 +56,7 @@ case $1 in
       fi
     ;;
   -d)
-    # tbd
+    echo "TODO: this option not yet implemented. Check back later!"
     ;;
   -e)
       vim ~/.tmuxinator/$2.yml
@@ -76,24 +75,28 @@ case $1 in
     # else, run `po_list_list()`
     ;;
   -L)
-    # tbd
+    echo "TODO: this option not yet implemented. Check back later!"
     ;;
   -n)
-    # tbd
+    echo "TODO: this option not yet implemented. Check back later!"
     ;;
   -o)
+    echo "TODO: this option not yet implemented. Check back later!"
     echo opening one ...
     # po_open_one()
     ;;
   -O)
+    echo "TODO: this option not yet implemented. Check back later!"
     echo opening list ...
     # po_open_list()
     ;;
   -x)
+    echo "TODO: this option not yet implemented. Check back later!"
     echo "terminate project $2"
     # po_stop_one()
     ;;
   -X)
+    echo "TODO: this option not yet implemented. Check back later!"
     echo "terminate $2 ..."
     # po_stop_group()
     ;;
