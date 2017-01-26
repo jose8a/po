@@ -13,11 +13,14 @@ po_show_running() {
   tmux list-sessions |  cut -d : -f 1 | xargs -n 1 echo "  * "
   echo
 }
+
 po_open_one() {
+  echo opening one ...
   PROJECT=$2
 }
 
 po_open_list () {
+  echo opening list ...
   LIST=$2
 }
 
@@ -30,10 +33,12 @@ po_list_list () {
 }
 
 po_stop_one () {
+  echo "terminate project: $2"
   cat $PO/projects/$2.list
 }
 
 po_stop_group () {
+  echo "terminate group: $2 ..."
   cat $PO/projects/$2.list
 }
 
@@ -50,9 +55,10 @@ case $1 in
       if [ -e $FILE ]
       then
         cat $FILE
-        #cat ~/.tmuxinator/$2.yml
       else
-        echo "please provide an existing configuration filename"
+        echo "Configuration file does not exist."
+        echo "Please provide a valid configuration."
+        echo
       fi
     ;;
   -d)
@@ -72,7 +78,6 @@ case $1 in
     else
       po_list_list
     fi
-    # else, run `po_list_list()`
     ;;
   -L)
     echo "TODO: this option not yet implemented. Check back later!"
@@ -82,22 +87,18 @@ case $1 in
     ;;
   -o)
     echo "TODO: this option not yet implemented. Check back later!"
-    echo opening one ...
     # po_open_one()
     ;;
   -O)
     echo "TODO: this option not yet implemented. Check back later!"
-    echo opening list ...
     # po_open_list()
     ;;
   -x)
     echo "TODO: this option not yet implemented. Check back later!"
-    echo "terminate project $2"
     # po_stop_one()
     ;;
   -X)
     echo "TODO: this option not yet implemented. Check back later!"
-    echo "terminate $2 ..."
     # po_stop_group()
     ;;
   *)
