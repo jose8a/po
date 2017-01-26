@@ -1,20 +1,6 @@
 #!/bin/bash
 
 # ===========================================================================
-# GLOBAL VARIABLES
-# ===========================================================================
-SESSION=$2
-GROUP=$2
-
-# TODO: remove this hard-coded $PO_GROUPS path and set it via the `install.sh` script
-PO_GROUPS="/Users/jose8a/jdev/po-projects"
-
-# tmuxinator config files path
-TM_PATH="/Users/jose8a/.tmuxinator"
-
-
-
-# ===========================================================================
 # FUNCTIONS
 # ===========================================================================
 po_show_help() {
@@ -124,54 +110,3 @@ po_stop_group () {
   cat $PO_GROUPS/projects/$GROUP.list
 }
 
-
-# ===========================================================================
-# USER-INPUT ROUTER
-# ===========================================================================
-case $1 in
-  -h)
-      po_show_help
-      ;;
-  -a)
-      po_attach_session
-      ;;
-  -c)
-      po_display_configuration
-      ;;
-  -d)
-      po_detach_session
-      ;;
-  -e)
-      po_edit_configuration
-      ;;
-  -r)
-      po_show_running
-      ;;
-  -l)
-      po_display_launchers
-      ;;
-  -L)   # TODO
-      echo "TODO: this option not yet implemented. Check back later!"
-      ;;
-  -n)   # TODO
-      echo "TODO: this option not yet implemented. Check back later!"
-      ;;
-  -o)
-      po_open_one
-      ;;
-  -O)
-      po_open_group
-      ;;
-  -x)   # TODO
-      echo "TODO: this option not yet implemented. Check back later!"
-      # po_stop_one()
-      ;;
-  -X)   # TODO
-      echo "TODO: this option not yet implemented. Check back later!"
-      # po_stop_group()
-      ;;
-  *)
-      po_option_error_banner
-      po_show_help
-      ;;
-esac
