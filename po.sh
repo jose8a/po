@@ -11,6 +11,15 @@ po_show_help() {
   cat HELP
 }
 
+po_option_error_banner () {
+  echo
+  echo "  ==================================="
+  echo "  *                                 *"
+  echo "  *    ERROR -- Invalid options.    *"
+  echo "  ==================================="
+  echo
+}
+
 po_attach_session() {
   echo "trying to attach to:  $SESSION"
   tmux attach -t $SESSION
@@ -63,7 +72,6 @@ case $1 in
       po_show_help
       ;;
   -a)
-      echo "TODO: this option not yet implemented. Check back later!"
       po_attach_session
       ;;
   -c)
@@ -116,12 +124,7 @@ case $1 in
       # po_stop_group()
       ;;
   *)
-      echo
-      echo "  ==================================="
-      echo "  *                                 *"
-      echo "  *    ERROR -- Invalid options.    *"
-      echo "  ==================================="
-      echo
+      po_option_error_banner
       po_show_help
       ;;
 esac
