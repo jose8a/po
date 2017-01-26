@@ -5,7 +5,7 @@ GROUP=$2
 
 
 # TODO: remove this hard-coded $PO path and set it via the `install.sh` script
-PO="~/jdev/po-projects/"
+PO="/Users/jose8a/jdev/po-projects"
 
 po_show_help() {
   cat HELP
@@ -32,9 +32,11 @@ po_open_one() {
   tmuxinator $SESSION
 }
 
-po_open_list () {
-  echo opening list ...
-  LIST=$2
+po_open_group () {
+  FILE="$PO/$GROUP.list"
+
+  echo "opening project-group ..."
+  cat $FILE | xargs -n 1 tmuxinator
 }
 
 po_list_all () {
@@ -74,55 +76,52 @@ case $1 in
         echo "Please provide a valid configuration."
         echo
       fi
-    ;;
-  -d)   # TODO
-    echo "TODO: this option not yet implemented. Check back later!"
+      ;;
+  -d)
       po_detach_session
-    ;;
+      ;;
   -e)   # TODO
       vim ~/.tmuxinator/$2.yml
-    ;;
+      ;;
   -r)
-    po_show_running
-    ;;
+      po_show_running
+      ;;
   -l)
-    echo listing ...
-    if [ $2 = 'all' ]
-    then
-      po_list_all
-    else
-      po_list_list
-    fi
-    ;;
+      echo listing ...
+      if [ $2 = 'all' ]
+      then
+        po_list_all
+      else
+        po_list_list
+      fi
+      ;;
   -L)   # TODO
-    echo "TODO: this option not yet implemented. Check back later!"
-    ;;
-  -n)   # TODO
-    echo "TODO: this option not yet implemented. Check back later!"
-    ;;
-  -o)   # TODO
       echo "TODO: this option not yet implemented. Check back later!"
+      ;;
+  -n)   # TODO
+      echo "TODO: this option not yet implemented. Check back later!"
+      ;;
+  -o)
       po_open_one
-    ;;
-  -O)   # TODO
-    echo "TODO: this option not yet implemented. Check back later!"
-    # po_open_list()
-    ;;
+      ;;
+  -O)
+      po_open_group
+      ;;
   -x)   # TODO
-    echo "TODO: this option not yet implemented. Check back later!"
-    # po_stop_one()
-    ;;
+      echo "TODO: this option not yet implemented. Check back later!"
+      # po_stop_one()
+      ;;
   -X)   # TODO
-    echo "TODO: this option not yet implemented. Check back later!"
-    # po_stop_group()
-    ;;
+      echo "TODO: this option not yet implemented. Check back later!"
+      # po_stop_group()
+      ;;
   *)
-    echo
-    echo "  ==================================="
-    echo "  *                                 *"
-    echo "  *    ERROR -- Invalid options.    *"
-    echo "  ==================================="
-    echo
-    po_show_help
-    ;;
+      echo
+      echo "  ==================================="
+      echo "  *                                 *"
+      echo "  *    ERROR -- Invalid options.    *"
+      echo "  ==================================="
+      echo
+      po_show_help
+      ;;
 esac
