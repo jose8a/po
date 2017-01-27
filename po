@@ -6,18 +6,22 @@
 SESSION=$2
 GROUP=$2
 
-# TODO: remove this hard-coded $PO_GROUPS path and set it via the `install.sh` script
-PO_GROUPS="/Users/jose8a/jdev/po-projects"
-
 # tmuxinator config files path
 TM_PATH="/Users/jose8a/.tmuxinator"
 
+# TODO: remove this hard-coded $PO_GROUPS path and set it via the `install.sh` script
+PO_GROUPS="/Users/jose8a/jdev/po-projects"
 
+# TODO: remove this hard-coded path and set it via the `install.sh` script
+SCRIPT_PATH="$HOME/jdev/l0/po"
+
+HELP="$SCRIPT_PATH/HELP"
 
 # ===========================================================================
 # FUNCTIONS
 # ===========================================================================
-source "po-functions.sh"
+source "$SCRIPT_PATH/po-functions.sh"
+
 
 
 # ===========================================================================

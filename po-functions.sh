@@ -4,7 +4,7 @@
 # FUNCTIONS
 # ===========================================================================
 po_show_help() {
-  cat HELP
+  cat $HELP
 }
 
 po_option_error_banner () {
@@ -60,7 +60,7 @@ po_edit_configuration () {
 po_show_running() {
   echo "These projects currently running: "
   echo
-  tmux list-sessions |  cut -d : -f 1 | xargs -n 1 echo "  * "
+  tmux list-sessions | cut -d : -f 1 | xargs -n 1 echo "  * "
   echo
 }
 
