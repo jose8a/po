@@ -102,7 +102,7 @@ po_list_group () {
 
 po_stop_one () {
   echo "terminate project: $SESSION"
-  cat $PO_GROUPS/projects/$SESSION.list
+  tmuxinator stop $SESSION
 }
 
 po_stop_group () {

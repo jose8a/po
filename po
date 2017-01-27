@@ -61,9 +61,8 @@ case $1 in
   -O)
       po_open_group
       ;;
-  -x)   # TODO
-      echo "TODO: this option not yet implemented. Check back later!"
-      # po_stop_one()
+  -x)
+      po_stop_one
       ;;
   -X)   # TODO
       echo "TODO: this option not yet implemented. Check back later!"
