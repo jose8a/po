@@ -9,7 +9,7 @@ Usage:
       -l            :display all available PROJECT-GROUP files
       -L all        :alias for `tmuxinator list`
       -L top        :display top-priority sessions
-      -n            :display the number of tmux sessions currently running
+      -n            :create a new session-launcher from a template
       -o SESSION    :launch a specific project named SESSION
       -O top        :launch all sessions in `top.list` file
       -O GROUP      :launch all sessions in project-group named GROUP

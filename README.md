@@ -56,13 +56,13 @@ If you don't see a list of all the tmuxinator configuration sessions (minus the 
   - display all *.list (project-groups) files
 
 * po -L all
-  - basically same as `mux list`
+  - basically same as `tmuxinator list`
 
 * po -L top
   - show contents of the top.list file
 
 * po -n
-  - display the number of projects currently running
+  - create a new session-launcher from a template
 
 * po -o SESSION
   - open a specific session named SESSION
@@ -74,7 +74,7 @@ If you don't see a list of all the tmuxinator configuration sessions (minus the 
   - open all projects in $LIST.list file
 
 * po -r
-  - show all running projects (same as `txl`)
+  - show all running projects (same as `tmux list-sessions`)
 
 * po -x SESSION
   - terminate a session named SESSION (basically `tmuxinator stop SESSION`)
