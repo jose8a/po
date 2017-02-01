@@ -82,9 +82,6 @@ If you don't see a list of all the tmuxinator configuration sessions (minus the 
 * po -X
   - terminate ALL projects currently running through tmux
 
-* po -X GROUP
-  - terminate any apps in the $LIST.list file
-
 * po -z
   - create a scratch-session with random name
 
