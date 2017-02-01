@@ -16,6 +16,19 @@ po_option_error_banner () {
   echo
 }
 
+po_create_session() {
+  FILE="$TM_PATH/$SESSION.yml"
+  TEMPLATE="$TM_PATH/templates/template.yml"
+
+  if [ -e $FILE ]
+  then
+    echo "Session launcher already exists. Try editing instead."
+  else
+    cat $TEMPLATE > $FILE
+    vim $FILE
+  fi
+}
+
 po_attach_session() {
   echo "trying to attach to:  $SESSION"
   tmux attach -t $SESSION

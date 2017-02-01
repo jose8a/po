@@ -53,7 +53,7 @@ case $1 in
       echo "TODO: this option not yet implemented. Check back later!"
       ;;
   -n)   # TODO
-      echo "TODO: this option not yet implemented. Check back later!"
+      po_create_session
       ;;
   -o)
       po_open_one
