@@ -120,11 +120,19 @@ po_list_group () {
 
 po_stop_one () {
   echo "terminate project: $SESSION"
-  tmuxinator stop $SESSION
+  # tmuxinator stop $SESSION
+  tmux kill-session -t $SESSION
 }
 
 po_stop_group () {
   echo "terminate group: $GROUP ..."
   cat $PO_GROUPS/projects/$GROUP.list
+}
+
+po_stop_all () {
+  echo "terminate server and all open sessions ..."
+
+  # kill the tmux server and destroy all sessions
+  tmux kill-server
 }
 

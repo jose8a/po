@@ -52,7 +52,7 @@ case $1 in
   -L)   # TODO
       echo "TODO: this option not yet implemented. Check back later!"
       ;;
-  -n)   # TODO
+  -n)
       po_create_session
       ;;
   -o)
@@ -64,9 +64,9 @@ case $1 in
   -x)
       po_stop_one
       ;;
-  -X)   # TODO
+  -X)
       echo "TODO: this option not yet implemented. Check back later!"
-      # po_stop_group()
+       po_stop_all
       ;;
   -z)
       po_create_scratch
