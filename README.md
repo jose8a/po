@@ -85,6 +85,9 @@ If you don't see a list of all the tmuxinator configuration sessions (minus the 
 * po -X all
   - terminate ALL projects currently running through tmux
 
+* po -z
+  - create a scratch-session with random name
+
 
 
 #===========================================================================

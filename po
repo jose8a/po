@@ -68,6 +68,9 @@ case $1 in
       echo "TODO: this option not yet implemented. Check back later!"
       # po_stop_group()
       ;;
+  -z)
+      po_create_scratch
+      ;;
   *)
       po_option_error_banner
       po_show_help

@@ -16,6 +16,11 @@ po_option_error_banner () {
   echo
 }
 
+po_create_scratch() {
+  RANDNAME="scratch-$RANDOM"
+  tmux new-session -s $RANDNAME
+}
+
 po_create_session() {
   FILE="$TM_PATH/$SESSION.yml"
   TEMPLATE="$TM_PATH/templates/template.yml"

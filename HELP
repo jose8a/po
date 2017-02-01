@@ -20,6 +20,7 @@ Usage:
                       ... alias for `tmuxinator stop SESSION`
 
       -X all        :terminate ALL tmux sessions currently running
+      -z            :create a scratch-session with random name
       -a SESSION    :wrapper around the comand `tmux a -t SESSION`
       -d            :wrapper around the command `tmux detach`
 
