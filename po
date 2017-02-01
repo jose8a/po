@@ -65,12 +65,14 @@ case $1 in
   -s)
       po_save_running_sessions
       ;;
+  -S)
+      po_open_restart_list
+      ;;
   -x)
       po_stop_one
       ;;
   -X)
-      echo "TODO: this option not yet implemented. Check back later!"
-       po_stop_all
+      po_stop_all
       ;;
   -z)
       po_create_scratch

@@ -122,6 +122,10 @@ po_save_running_sessions () {
   tmux list-sessions | cut -d : -f 1 > $RESTART_FILE
 }
 
+po_open_restart_list () {
+  cat $RESTART_FILE | xargs -n 1 tmuxinator start
+}
+
 po_stop_one () {
   echo "terminate project: $SESSION"
   # tmuxinator stop $SESSION
