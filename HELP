@@ -15,6 +15,8 @@ Usage:
       -O GROUP      :launch all sessions in project-group named GROUP
       -r            :show all running sessions
                       ... alias for `tmux list-sessions`
+      -s            :save running sessions into RESTART list for batch re-opening
+      -S            :re-open sessions in the RESTART list
 
       -x SESSION    :terminate an active session named SESSION
                       ... alias for `tmuxinator stop SESSION`

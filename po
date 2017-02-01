@@ -11,6 +11,7 @@ TM_PATH="/Users/jose8a/.tmuxinator"
 
 # TODO: remove this hard-coded $PO_GROUPS path and set it via the `install.sh` script
 PO_GROUPS="/Users/jose8a/jdev/po-projects"
+RESTART_FILE="$PO_GROUPS/RESTART.list"
 
 # TODO: remove this hard-coded path and set it via the `install.sh` script
 SCRIPT_PATH="$HOME/jdev/l0/po"
@@ -43,9 +44,6 @@ case $1 in
   -e)
       po_edit_configuration
       ;;
-  -r)
-      po_show_running
-      ;;
   -l)
       po_display_launchers
       ;;
@@ -60,6 +58,12 @@ case $1 in
       ;;
   -O)
       po_open_group
+      ;;
+  -r)
+      po_show_running
+      ;;
+  -s)
+      po_save_running_sessions
       ;;
   -x)
       po_stop_one

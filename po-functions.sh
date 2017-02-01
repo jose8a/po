@@ -118,6 +118,10 @@ po_list_group () {
   cat $PO_GROUPS/$GROUP.list | xargs -n 1 echo "  * "
 }
 
+po_save_running_sessions () {
+  tmux list-sessions | cut -d : -f 1 > $RESTART_FILE
+}
+
 po_stop_one () {
   echo "terminate project: $SESSION"
   # tmuxinator stop $SESSION

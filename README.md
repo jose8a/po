@@ -76,6 +76,12 @@ If you don't see a list of all the tmuxinator configuration sessions (minus the 
 * po -r
   - show all running projects (same as `tmux list-sessions`)
 
+* po -s
+  - save running sessions (in RESTART list) for quick restart later
+
+* po -S
+  - re-open sessions in the RESTART list
+
 * po -x SESSION
   - terminate a session named SESSION (basically `tmuxinator stop SESSION`)
 
