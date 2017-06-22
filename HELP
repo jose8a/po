@@ -6,15 +6,17 @@ Usage:
       -h            :display help menu
       -c SESSION    :print to STDOUT the tmuxinator SESSION.yml configuration
       -e SESSION    :edit the tmuxinator SESSION.yml configuration
-      -l            :display all available PROJECT-GROUP files
-      -L all        :alias for `tmuxinator list`
-      -L top        :display top-priority sessions
+      -L            :display all available PROJECT-GROUP files
+      -l all        :alias for `tmuxinator list`
+      -l top        :display top-priority sessions
+      -l GROUP      :display all sessions in project-group named GROUP
       -n            :create a new session-launcher from a template
       -o SESSION    :launch a specific project named SESSION
       -O top        :launch all sessions in `top.list` file
       -O GROUP      :launch all sessions in project-group named GROUP
       -r            :show all running sessions
                       ... alias for `tmux list-sessions`
+      -R            :show all projects in the RESTART list
       -s            :save running sessions into RESTART list for batch re-opening
       -S            :re-open sessions in the RESTART list
 
