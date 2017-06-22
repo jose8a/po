@@ -52,13 +52,13 @@ If you don't see a list of all the tmuxinator configuration sessions (minus the 
 * po -e SESSION
   - edit the "~/.tmuxinator/SESSION.yml" configuration file for SESSION
 
-* po -l
+* po -L
   - display all *.list (project-groups) files
 
-* po -L all
+* po -l all
   - basically same as `tmuxinator list`
 
-* po -L top
+* po -l top
   - show contents of the top.list file
 
 * po -n
@@ -75,6 +75,9 @@ If you don't see a list of all the tmuxinator configuration sessions (minus the 
 
 * po -r
   - show all running projects (same as `tmux list-sessions`)
+
+* po -R
+  - show all projects in the RESTART list
 
 * po -s
   - save running sessions (in RESTART list) for quick restart later

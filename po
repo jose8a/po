@@ -47,8 +47,8 @@ case $1 in
   -l)
       po_display_launchers
       ;;
-  -L)   # TODO
-      echo "TODO: this option not yet implemented. Check back later!"
+  -L)
+      po_display_groups
       ;;
   -n)
       po_create_session
@@ -61,6 +61,9 @@ case $1 in
       ;;
   -r)
       po_show_running
+      ;;
+  -R)
+      po_show_restart
       ;;
   -s)
       po_save_running_sessions

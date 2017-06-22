@@ -82,6 +82,13 @@ po_show_running() {
   echo
 }
 
+po_show_restart() {
+  echo "The projects currently in the RESTART list: "
+  echo
+  cat $RESTART_FILE
+  echo
+}
+
 po_open_one() {
   echo "opening session $SESSION ..."
   tmuxinator $SESSION
@@ -92,6 +99,11 @@ po_open_group () {
 
   echo "opening project-group ..."
   cat $FILE | xargs -n 1 tmuxinator
+}
+
+po_display_groups() {
+  ls -al $PO_GROUPS
+  echo
 }
 
 po_display_launchers() {
