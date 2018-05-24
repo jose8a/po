@@ -1,0 +1,24 @@
+{
+  "name": "po",
+  "version": "1.0.0",
+  "description": "## DESCRIPTION   * NOTE: in this setup, the terms session and project are interchangeable",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jose8a/po.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jose8a/po/issues"
+  },
+  "homepage": "https://github.com/jose8a/po#readme",
+  "dependencies": {
+    "commander": "^2.15.1",
+    "shelljs": "^0.8.2"
+  }
+}
