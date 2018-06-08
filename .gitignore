@@ -1,4 +1,6 @@
 .notes
+.notes.md
 .todos
+.todos.md
 .resources.md
 **/**/node_modules/
