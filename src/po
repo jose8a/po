@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+const po = require('commander');
+const sh = require('shelljs');
+const signale = require('signale');
+
+/*
+ * Import command handlers
+ */
+const handleAttach = require('./attachHandler');
+const handleDetach = require('./detachHandler');
+const handleEdit = require('./editHandler');
+const handleContent = require('./contentHandler');
+const handleListing = require('./listHandler');
+const handleCreate = require('./createHandler');
+const handleOpen = require('./openHandler');
+const handleSnapshot = require('./snapshotHandler');
+const handleStop = require('./stopHandler');
+const handleHistory = require('./historyHandler');
+const handleScratch = require('./scratchHandler');
+
+po.version('0.1.0')
+
+
+/*
+ * Instantiate the command handlers
+ */
+handleAttach(po);
+handleContent(po);
+handleDetach(po);
+handleEdit(po);
+handleListing(po);
+handleCreate(po);
+handleOpen(po);
+handleSnapshot(po);
+handleStop(po);
+handleHistory(po);
+handleScratch(po);
+
+po.parse(process.argv);
+
