@@ -3,13 +3,24 @@
 /**
  * Module dependencies.
  */
-
 const po = require('commander');
 const sh = require('shelljs');
-const signale = require('signale');
+const chalk = require('chalk');
+require('paint-console');
+
+// TODO: remove these from the project.  Only paint-console needed
+// for color output on errors.
+// --- const signale = require('signale');
 
 /*
- * Import command handlers
+ * TODO: Quit if the project folders have NOT been set up
+ */
+
+
+/*
+ * Command handlers
+ *  - using Commander.js 'git-style sub-commands' pattern
+ *    for each of the below handlers
  */
 const handleAttach = require('./attachHandler');
 const handleDetach = require('./detachHandler');

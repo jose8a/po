@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/jose8a/po#readme",
   "dependencies": {
+    "chalk": "^2.4.1",
     "commander": "^2.15.1",
+    "paint-console": "0.0.1",
     "shelljs": "^0.8.2",
     "signale": "^1.1.0"
   },
