@@ -21,7 +21,7 @@
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
     "paint-console": "0.0.1",
-    "shelljs": "^0.8.2",
+    "shelljs": "^0.8.5",
     "signale": "^1.1.0"
   },
   "devDependencies": {
