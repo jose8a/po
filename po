@@ -10,7 +10,7 @@ GROUP=$2
 TM_PATH="/Users/jose8a/.tmuxinator"
 
 # TODO: remove this hard-coded $PO_GROUPS path and set it via the `install.sh` script
-PO_GROUPS="/Users/jose8a/jdev/po-projects"
+PO_GROUPS="/Users/jose8a/jdev/tm-sessions"
 RESTART_FILE="$PO_GROUPS/RESTART.list"
 
 # TODO: remove this hard-coded path and set it via the `install.sh` script
